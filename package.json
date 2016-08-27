@@ -1,0 +1,20 @@
+{
+  "name": "es6_template",
+  "version": "1.0.0",
+  "description": "Basic template for ES6 projects",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ES6"
+  ],
+  "author": "Mark Morris <mmorris00@mac.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "webpack": "^2.1.0-beta.21"
+  }
+}
