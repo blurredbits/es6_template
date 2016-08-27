@@ -4,6 +4,8 @@
   "description": "Basic template for ES6 projects",
   "main": "./src/app.js",
   "scripts": {
+    "build": "webpack --progress --watch",
+    "start": "webpack-dashboard -- webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,6 +17,8 @@
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
     "babel-preset-es2015-native-modules": "^6.9.4",
-    "webpack": "^2.1.0-beta.21"
+    "webpack": "^2.1.0-beta.21",
+    "webpack-dashboard": "^0.1.8",
+    "webpack-dev-server": "^2.1.0-beta.0"
   }
 }

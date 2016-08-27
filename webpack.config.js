@@ -1,13 +1,17 @@
 const webpack = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const nodeEnv = process.env.NODE_ENV || 'production';
+const path = require('path');
 
 module.exports = {
   devtool: 'source-map',
   entry: {
-    filename: './src/app.js'
+    app: ["./src/app.js"]
   },
   output: {
-    filename: '_build/bundle.js'
+    path: path.resolve(__dirname, "_build"),
+    publicPath: '/public/',
+    filename: 'bundle.js'
   },
   module: {
     loaders: [
@@ -15,9 +19,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel',
-        query: {
-          presets: ['es2015-native-modules']
-        }
+        presets: [
+          ['es2015', { 'modules': false }]
+        ]
       }
     ]
   },
@@ -33,6 +37,11 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
-    })
-  ]
+    }),
+    new DashboardPlugin({ port: 3001 })
+  ],
+  devServer: {
+    quiet: false,
+    port: 3001,
+  }
 };
